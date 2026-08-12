@@ -1,5 +1,6 @@
 # Manual Wi-Fi configuration (no NetworkManager)
 **Tested on**: Debian 13(Live USB)
+
 **Objective**: Configure a wireless interface without using NetworkManager, using the persitent Debian tools
 
 # Prerequisites
