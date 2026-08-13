@@ -29,13 +29,13 @@ Open the `/etc/network/interfaces` and type the following:
   This tells the `ifup` command to start the `wlp*s*` interface and use the `wpa_supplicant` tools.
 
 - But before that, we need to specify which network we want to connect to and its password.  
-It can be easily done by `wpa_passphrase "Your Wi-Fi SSID" "Your Wi-Fi pw" > /tmp/ws.conf`.
+It can be easily done by `wpa_passphrase "lur Wi-Fi SSID" "our Wi-Fi pw" > /tmp/ws.conf`.
 Note, we use the same `/tmp/ws.conf` as in `/etc/network/interfaces`.
 
 - Now we are ready to connect.  
-Run `ifup wlp*s*`. This command will connect to your AP by using `wpa_supplicant`, then receive an IP by `dhcpcd`.
+Run `ifup wlp*s*`. This command will connect to our AP by using `wpa_supplicant`, then receive an IP by `dhcpcd`.
 
-- Test your connection.  
+- Test our connection.  
 `ping google.com`
 
 - Troubleshooting.  
@@ -49,7 +49,7 @@ Run `ifup wlp*s*`. This command will connect to your AP by using `wpa_supplicant
 This is more *manual* way to configure. We already know how to find our wireless interface(`ip a`).
 
 - First we need write our Wi-Fi SSID and Wi-Fi password to `/tmp/ws.conf`.  
-Run this command `wpa_passphrase "Your Wi-Fi SSID" "Your Wi-Fi pw" > /tmp/ws.conf`.
+Run this command `wpa_passphrase "our Wi-Fi SSID" "our Wi-Fi pw" > /tmp/ws.conf`.
 
 - Now we can connect to our Wi-Fi on L2(arp layer).  
 Just run `wpa_supplicant -i wlp*s* -c /tmp/ws.conf`.
@@ -59,12 +59,21 @@ Here is our wireless interface and the store SSID+password of Wi-Fi.
 - Next step is get/assign the IP addres and default route.  
 It can be done in two ways:
   1. By `dhcpcd`. Just run `dhcpcd` and it will assign IP and create default route.  
-    Now you can check your internet connection `ping google.com`.
+    Now we can check our internet connection `ping google.com`.
   2. More *manual* way again.
-    - `ip add addr 192.168.1.200/24 dev wlp*s*` assign IP address.  
+    - `ip add addr 192.168.1.200/24 dev wlp*s*` assign **IP address**.  
     192.168.1.0/24 subnet (with a /24 netmask) is the most common setup for home Wi-Fi networks.
-    - 
+    - `ip route add default via 192.168.1.1 dev wlp*s*` add **default route**.
+    Here 192.168.1.1 is our Wi-Fi **router address**.
+    - It is done. Check the connection `ping google.com`.
 
 - Troubleshooting.
-  - The assinged manually IP address can be already assigned by another user.  
+  - The assinged manually **IP address** can be already assigned by another user.  
   Try another IP.
+  - The **router address** can use different subnets.
+  After connection by L2(arp layer), we can use `arpd` daemon.  
+  Just start it `arpd  -a` after a while we can run `arpd -l` to see found IPs.
+  One with 192.168.*.1 is should be router and our new **default route**.
+
+- Tips.
+  - `arpd` daemon to find local network devices.
