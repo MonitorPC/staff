@@ -63,3 +63,8 @@ It can be done in two ways:
   2. More *manual* way again.
     - `ip add addr 192.168.1.200/24 dev wlp*s*` assign IP address.  
     192.168.1.0/24 subnet (with a /24 netmask) is the most common setup for home Wi-Fi networks.
+    - 
+
+- Troubleshooting.
+  - The assinged manually IP address can be already assigned by another user.  
+  Try another IP.
