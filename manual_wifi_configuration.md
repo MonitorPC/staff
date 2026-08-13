@@ -76,7 +76,7 @@ It can be done in two ways:
   - The **router** can use different subnets.  
   After connection by L2(arp layer), we can use `arpd` daemon.  
   Just start it `arpd  -a` after a while we can run `arpd -l` to see found IPs.  
-  One with 192.168.*.1 is should be router and our new **default route**.
+  One with 192.168.*.1 should be router and our new **default route**.
 
 - Tips.
   - `arpd` daemon to find local network devices like routers.
