@@ -41,7 +41,7 @@ Run `ifup wlp*s*`. This command will connect to your AP by using `wpa_supplicant
 - Troubleshooting.  
 **TO DO**
 
-- Tips.
+- Tips.  
 **TO DO**
 
 ## Second approach
@@ -58,7 +58,7 @@ Here is our wireless interface and the store SSID+password of Wi-Fi.
 
 - Next step is get/assign the IP addres and default route.  
 It can be done in two ways:
-  1. By `dhcpcd`. Just run `dhcpcd` and it will assign IP and create default route. 
+  1. By `dhcpcd`. Just run `dhcpcd` and it will assign IP and create default route.  
     Now you can check your internet connection `ping google.com`.
   2. More *manual* way again.
     - `ip add addr 192.168.1.200/24 dev wlp*s*` assign IP address.  
