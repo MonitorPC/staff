@@ -63,18 +63,28 @@ It can be done in two ways:
   2. More *manual* way again.
     - `ip add addr 192.168.1.200/24 dev wlp*s*` assign **IP address**.  
     192.168.1.0/24 subnet (with a /24 netmask) is the most common setup for home Wi-Fi networks.
-    - `ip route add default via 192.168.1.1 dev wlp*s*` add **default route**.
+    - `ip route add default via 192.168.1.1 dev wlp*s*` add **default route**.  
     Here 192.168.1.1 is our Wi-Fi **router address**.
     - It is done. Check the connection `ping google.com`.
 
 - Troubleshooting.
-  - The assinged manually **IP address** can be already assigned by another user.  
+  - The assinged manually **IP address** can be already assigned by another user.   
   Try another IP.
-  - The **router** can use different subnets.
+  - The **router** can use different subnets.  
   After connection by L2(arp layer), we can use `arpd` daemon.  
-  Just start it `arpd  -a` after a while we can run `arpd -l` to see found IPs.
+  Just start it `arpd  -a` after a while we can run `arpd -l` to see found IPs.  
   One with 192.168.*.1 is should be router and our new **default route**.
 
 - Tips.
   - `arpd` daemon to find local network devices like routers.
   - `iw dev wlp*s* scan` to scan the Wi-Fi networks.
+
+## Used tools
+
+All the tools are on the default Debian 13 Live USB.  
+- `ifupdown`
+- `wpa_supplicant`
+- `dhcpcd`
+- `ip`
+- `iw`
+- `arpd`
