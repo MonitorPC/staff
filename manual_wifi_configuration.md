@@ -60,11 +60,14 @@ Here is our wireless interface and the store SSID+password of Wi-Fi.
 It can be done in two ways:
   1. By `dhcpcd`. Just run `dhcpcd` and it will assign IP and create default route.  
     Now we can check our internet connection `ping google.com`.
+
   2. More *manual* way again.
     - `ip add addr 192.168.1.200/24 dev wlp*s*` assign **IP address**.  
     192.168.1.0/24 subnet (with a /24 netmask) is the most common setup for home Wi-Fi networks.
+
     - `ip route add default via 192.168.1.1 dev wlp*s*` add **default route**.  
     Here 192.168.1.1 is our Wi-Fi **router address**.
+
     - It is done. Check the connection `ping google.com`.
 
 - Troubleshooting.
