@@ -42,7 +42,7 @@ Run `ifup wlp*s*`. This command will connect to our AP by using `wpa_supplicant`
 **TO DO**
 
 - Tips.  
-**TO DO**
+  - `iw dev wlp*s* scan` to scan the Wi-Fi networks.
 
 ## Second approach
 
@@ -76,4 +76,5 @@ It can be done in two ways:
   One with 192.168.*.1 is should be router and our new **default route**.
 
 - Tips.
-  - `arpd` daemon to find local network devices.
+  - `arpd` daemon to find local network devices like routers.
+  - `iw dev wlp*s* scan` to scan the Wi-Fi networks.
