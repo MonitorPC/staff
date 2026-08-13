@@ -70,7 +70,7 @@ It can be done in two ways:
 - Troubleshooting.
   - The assinged manually **IP address** can be already assigned by another user.  
   Try another IP.
-  - The **router address** can use different subnets.
+  - The **router** can use different subnets.
   After connection by L2(arp layer), we can use `arpd` daemon.  
   Just start it `arpd  -a` after a while we can run `arpd -l` to see found IPs.
   One with 192.168.*.1 is should be router and our new **default route**.
