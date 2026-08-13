@@ -23,5 +23,5 @@
   ```
 
 - Run:
-* `ifup wlp1s0` to connect
-* `ifdown wlp1s0` to disconnect
+  - `ifup wlp1s0` to connect
+  - `ifdown wlp1s0` to disconnect
