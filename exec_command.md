@@ -16,7 +16,7 @@ If close my laptop the X-session will not close and anyone can open laptop and g
 Using a loggin manager is not my way, simple exit from `berry` process will return me in tty shell again less security.
 It is where I deep dive into `exec`.
 
-## *In plain English*
+## In plain English
 
 As you can know the `exec command` will change the current shell process with command.
 So to fullfil my requests I just run `exec startx`.  
